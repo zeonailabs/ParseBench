@@ -14,17 +14,20 @@ app = FastAPI(
     description="Upload documents and benchmark parser output and latency.",
     version="0.2.0",
 )
-
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
         "http://localhost:5173",
         "http://127.0.0.1:5173",
+        "http://localhost:5174",
+        "http://127.0.0.1:5174",
     ],
     allow_credentials=False,
     allow_methods=["GET", "POST"],
     allow_headers=["Content-Type", "Authorization"],
 )
+
+
 
 MAX_FILE_BYTES = 20 * 1024 * 1024
 UPLOAD_CHUNK_BYTES = 1024 * 1024
